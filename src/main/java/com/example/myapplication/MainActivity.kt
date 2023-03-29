@@ -11,9 +11,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val users= arrayOf(Usuario("User0","A"),Usuario("User1","B"),
-            Usuario("User2","C"),Usuario("User3","D"), Usuario
-        ("User4","E"))
+        val users = LinkedHashMap<String,String>()
+        users["User0"] = "0"
+        users["User1"] = "1"
+        users["User2"] = "2"
+        users["User3"] = "3"
+        users["User4"] = "4"
 
         val user = findViewById<EditText>(R.id.user)
         val password = findViewById<EditText>(R.id.password)
@@ -24,8 +27,7 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener(){
             val userInput = user.text.toString()
             val passwordInput = password.text.toString()
-            val u = Usuario(userInput,passwordInput)
-            if (u in users){
+            if (users.containsKey(userInput) && users.containsValue(passwordInput)){
                 res = "Login efetuado"
             }
             else {
