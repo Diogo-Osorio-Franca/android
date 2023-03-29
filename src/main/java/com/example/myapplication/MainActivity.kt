@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener(){
             val userInput = user.text.toString()
             val passwordInput = password.text.toString()
-            if (users.containsKey(userInput) && users.containsValue(passwordInput)){
+            if (users[userInput].equals(passwordInput)){
                 res = "Login efetuado"
             }
             else {
@@ -45,6 +45,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    class Usuario(username:String, password:String)
+    class Usuario constructor(username:String, password:String){
+
+    }
 
 }
